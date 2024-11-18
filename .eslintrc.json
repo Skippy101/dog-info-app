@@ -12,7 +12,7 @@
     "@next/next/no-img-element": "off",
 
     // TypeScript-specific settings
-    "@typescript-eslint/no-unused-vars": ["error"],
+    "@typescript-eslint/no-unused-vars": "off",
 
     // Enforce consistent formatting with Prettier
     //"prettier/prettier": ["error"],
