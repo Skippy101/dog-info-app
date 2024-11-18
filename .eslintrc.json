@@ -1,3 +1,23 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["@typescript-eslint"],
+  "rules": {
+    // Next.js specific settings
+    "@next/next/no-img-element": "off",
+
+    // TypeScript-specific settings
+    "@typescript-eslint/no-unused-vars": ["error"],
+
+    // Enforce consistent formatting with Prettier
+    "prettier/prettier": ["error"],
+
+    // React-specific settings
+    "react/react-in-jsx-scope": "off"
+  }
 }

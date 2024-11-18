@@ -20,6 +20,9 @@
 # production
 /build
 
+#sources
+/gallery_source
+
 # misc
 .DS_Store
 *.pem
