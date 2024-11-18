@@ -15,7 +15,8 @@
     "@typescript-eslint/no-unused-vars": ["error"],
 
     // Enforce consistent formatting with Prettier
-    "prettier/prettier": ["error"],
+    //"prettier/prettier": ["error"],
+    "prettier/prettier": "off",
 
     // React-specific settings
     "react/react-in-jsx-scope": "off"

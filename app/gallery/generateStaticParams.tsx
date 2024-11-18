@@ -14,7 +14,7 @@ export async function generateStaticParams() {
       
       // Use Sharp to get image dimensions and handle EXIF orientation
       //const { width, height } = await sharp(imagePath).rotate().metadata();
-      var { orientation, width, height } = await sharp(imagePath).metadata();
+      let { orientation, width, height } = await sharp(imagePath).metadata();
       console.log({ fileName, orientation, width, height });
       if (orientation === 6 || orientation === 8) {
         [width, height] = [height, width]; // Swap width and height if orientation is 6 or 8
