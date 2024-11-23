@@ -11,16 +11,15 @@ export async function generateStaticParams() {
   const images = await Promise.all(
     imageFiles.map(async (fileName) => {
       const imagePath = path.join(galleryPath, fileName);
-      
+
       // Use Sharp to get image dimensions and handle EXIF orientation
       //const { width, height } = await sharp(imagePath).rotate().metadata();
-      let { orientation, width, height } = await sharp(imagePath).metadata();
+      const { orientation, width, height } = await sharp(imagePath).metadata();
       console.log({ fileName, orientation, width, height });
+      let aspectRatio = width && height ? width / height : 1.778; // Default to 1.778 if unable to calculate
       if (orientation === 6 || orientation === 8) {
-        [width, height] = [height, width]; // Swap width and height if orientation is 6 or 8
+        aspectRatio = 1 / aspectRatio; // Swap width and height if orientation is 6 or 8
       }
-      const aspectRatio = width && height ? width / height : 1.778; // Default to 1 if unable to calculate
-      //const aspectRatio = 1;
       return {
         src: `/gallery/${fileName}`,
         aspect_ratio: aspectRatio,
